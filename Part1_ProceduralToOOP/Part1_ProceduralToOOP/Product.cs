@@ -1,4 +1,4 @@
-﻿namespace Part1ProceduralToOOP;
+﻿namespace Part1_ProceduralToOOP;
 
 public class Product
 {
@@ -9,6 +9,7 @@ public class Product
     public decimal Price { get; private set; }
 
     public int Stock { get; private set; }
+    private bool HasStock(int quantity) => quantity <= Stock;
 
     public Product(int id, string name, decimal price, int stock)
     {
@@ -21,7 +22,6 @@ public class Product
         Price = price;
         Stock = stock;
     }
-    private bool HasStock(int quantity) => quantity <= Stock;
 
 
     public void ReduceStock(int quantity)
@@ -36,5 +36,7 @@ public class Product
         Stock -= quantity;
     }
 
+    public override string ToString() =>
+        $"#{Id}  {Name}  price={Price:F2}  stock={Stock}";
 
 }

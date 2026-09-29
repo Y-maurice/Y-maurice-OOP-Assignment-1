@@ -1,4 +1,5 @@
-﻿using Part1ProceduralToOOP;
+﻿
+using System.Text;
 
 namespace Part1_ProceduralToOOP;
 
@@ -54,7 +55,7 @@ public class Order
 
     public void MarkAsPaid()
     {
-        if (OrderLines.Count == 0)
+        if (_orderLines.Count == 0)
             throw new InvalidOperationException("nothing in this order to be paid");
 
         IsPaid = true;
@@ -62,6 +63,17 @@ public class Order
 
     public override string ToString()
     {
-        return
+        var sb = new StringBuilder();
+        sb.AppendLine($"=== ORDER #{Id} ===");
+        sb.AppendLine($"Date: {Date:yyyy-MM-dd}");
+        sb.AppendLine($"Customer: {Customer.Name} (#{Customer.Id})");
+        sb.AppendLine($"Paid: {(IsPaid ? "yes" : "no")}");
+        sb.AppendLine("Lines:");
+
+        foreach (var line in _orderLines)
+            sb.AppendLine($"  {line}");
+
+        sb.Append($"TOTAL: {CalculateTotal():F2}");
+        return sb.ToString();
     }
 }
