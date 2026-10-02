@@ -94,10 +94,9 @@ public class Reservation
     }
 
 
-    public override string ToString()
-    {
-        return $"Reservation ID: {ReservationId}, Check-in: {CheckInDate}, Check-out: {CheckOutDate}, Room: {Room}, Guest: {Guest}";
-    }
 
-
+    public override string ToString() =>
+    $"Reservation {ReservationId} | Guest {Guest.GuestId} ({Guest.FullName}) | " +
+    $"Room {Room.RoomNumber} | {CheckInDate} to {CheckOutDate} | " +
+    $"{Status} | Total: {TotalCost:F2}";
 }

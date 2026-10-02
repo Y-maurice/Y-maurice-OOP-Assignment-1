@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Part2_HotelReservationSystem.Enums;
 
-namespace Part2_HotelReservationSystem.Enums
+public enum RoomType
 {
-    internal class RoomType
-    {
-    }
+    Single,
+    Double,
+    Suite
 }

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Part2_HotelReservationSystem.Enums;
 
-namespace Part2_HotelReservationSystem
+public enum ReservationStatus
 {
-    internal class Enums
-    {
-    }
+    Pending,
+    Confirmed,
+    CheckedIn,
+    CheckedOut,
+    Cancelled
 }
